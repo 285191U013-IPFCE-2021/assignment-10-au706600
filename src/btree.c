@@ -225,6 +225,6 @@ int Empty (struct tree_node *t)
 
 int Full (struct tree_node *t)
 {
-  //linked list can't be full. 
+  //linked list can't be full.  
 }
 
