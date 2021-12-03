@@ -14,8 +14,8 @@ node *make_node (int v, node * q)
   node *p = malloc (sizeof (node));
   p->value = v;
 
-  if (q == &SENTINEL_node)
-    p->next = &SENTINEL_node;
+  if (q == NULL)
+    p->next = NULL;
   else
     p->next = q;
   return p;
@@ -24,37 +24,37 @@ node *make_node (int v, node * q)
 /* free all nodes in the list p */
 void free_list (node * p)
 {
-  node *q = p;
-  while (q != &SENTINEL_node)
+  node *q = *p;
+  while (q != NULL)
     {
       node *t = q->next;
       free (q);
       q = t;
     }
+    (*p)=NULL; 
 }
 
 
 /* print list to console */
-void print_list (node * p)
+void print_list (node *p)
 {
-    if (p == &SENTINEL_node)
+  printf("["); 
+    if (p->next != NULL)
     {
-      return ("\n"); 
-    } else {
-      printf("&d", p -> value); 
-      return (p -> next); 
-    }
+      printf("%d", p->value); 
+      print_list(p);  
+    } else 
+      print("]"); 
     }
 
 int sum_squares (node * p)
 {
-    if (p ==&SENTINEL_node )
+    if (p ==NULL)
     {
       return 0; 
-    }else {
-      return (square(p -> value) + sum_squares(p -> next)); 
+    }else 
+      return (p->value*p->value + sum_squares(p->next)); 
     }
-}
 
 node *map (node * p, int (*f) (int))
 {
