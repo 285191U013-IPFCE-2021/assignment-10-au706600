@@ -6,12 +6,11 @@
 #include <stdio.h>		/* printf */
 #include <stdlib.h>		/* malloc, free */
 #include <assert.h>		/* assert */
-#include <math.h>
 
 /* functions to create lists */
 node *make_node (int v, node * q)
 {
-  node *p = malloc (sizeof (node));
+  node *p = malloc(sizeof (node));
   p->value = v;
 
   if (q == NULL)
@@ -22,7 +21,7 @@ node *make_node (int v, node * q)
 }
 
 /* free all nodes in the list p */
-void free_list (node * p)
+void free_list (node **p)
 {
   node *q = *p;
   while (q != NULL)
@@ -31,39 +30,39 @@ void free_list (node * p)
       free (q);
       q = t;
     }
-    (*p)=NULL; 
+    (*p) = NULL; 
 }
 
 
 /* print list to console */
-void print_list (node *p)
+void print_list (node * p)
 {
   printf("["); 
     if (p->next != NULL)
     {
       printf("%d", p->value); 
       print_list(p);  
-    } else 
-      print("]"); 
+    } 
+    else 
+      printf("]"); 
     }
 
 int sum_squares (node * p)
 {
-    if (p ==NULL)
-    {
+    if (p == NULL)
       return 0; 
-    }else 
+    else 
       return (p->value*p->value + sum_squares(p->next)); 
     }
 
-node *map (node * p, int (*f) (int))
+node *map (node *p, int (*f) (int))
 {
     // Add your code for excercise 3
     if (p == NULL)
     return NULL; 
     else 
     {
- node *item = malloc(sizeof(node));
+    node *item = malloc(sizeof(node));
     item->value = f(p->value);
     item->next = map(p->next, f);
     return item;
