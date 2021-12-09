@@ -8,7 +8,9 @@
 
 struct tree_node * Insert (int x, struct tree_node *t)
 {
+  /*
   {
+    /*
   if (Empty(t))
   {
     struct tree_node *leaf = malloc(sizeof(struct tree_node));
@@ -63,11 +65,13 @@ struct tree_node * Insert (int x, struct tree_node *t)
   }
   return NULL;
 }
+*/
 }
 
 struct tree_node * Remove (int x, struct tree_node *t)
 {
-   struct tree_node *current = t;
+  /*
+  struct tree_node *current = t;
   struct tree_node *forcurrent = t;
   struct tree_node *root = t;
   struct tree_node *forroot = t;
@@ -168,10 +172,12 @@ struct tree_node * Remove (int x, struct tree_node *t)
         free (root);
       }
  }
+ */
 }
 
 int Contains (int x, struct tree_node *t)
 {
+  /*
 
   {
 
@@ -198,22 +204,27 @@ int Contains (int x, struct tree_node *t)
       t=t->right;
     }
   }
+  */
 return 0;
+
 }
 
 
 struct tree_node * Initialize (struct tree_node *t)
 {
+  /*
   struct tree_node *root = malloc(sizeof(struct tree_node)); 
   root -> item = 0; 
   root -> right = NULL; 
   root -> left = NULL;  
 
-return root; 
+return root;
+*/ 
 }
 
 int Empty (struct tree_node *t)
 {
+  /*
   // test if empty
   if (t -> right == NULL && t -> left == NULL ){
     return 1; 
@@ -221,10 +232,12 @@ int Empty (struct tree_node *t)
     return 0; 
   }
   }
-}
+  */
+  }
 
 int Full (struct tree_node *t)
 {
-  //linked list can't be full.  
+ return 0; 
 }
+  
 
